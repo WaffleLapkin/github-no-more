@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "github-no-more",
+  "description": "No more \"Load more...\" on github",
+  "version": "0.0.1",
+  "icons": {
+    "256": "icons/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.github.com/*"
+      ],
+      "js": [
+        "content_script.js"
+      ]
+    }
+  ],
+  "options_ui": {
+    "page": "options/options.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "github-no-more@ihatereality.space"
+    }
+  }
+}
