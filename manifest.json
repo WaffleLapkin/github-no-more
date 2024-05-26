@@ -16,12 +16,6 @@
       ]
     }
   ],
-  "options_ui": {
-    "page": "options/options.html"
-  },
-  "permissions": [
-    "storage"
-  ],
   "browser_specific_settings": {
     "gecko": {
       "id": "github-no-more@ihatereality.space"
