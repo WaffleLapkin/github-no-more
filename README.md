@@ -1,9 +1,4 @@
-<p align="center">
-
-![icon](icons/icon.png)
-
-</p>
-
+<p align="center"><img src="icons/icon.png" alt="icon"></p>
 
 # No more "Load more" buttons on github
 
