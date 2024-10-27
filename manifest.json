@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "github-no-more",
   "description": "No more \"Load more...\" on github",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage_url": "https://github.com/WaffleLapkin/github-no-more",
   "icons": {
     "256": "icons/icon.png"

@@ -3,7 +3,13 @@
 // Clicks on all buttons which contain "Load more..." or "Load diff"
 
 const find_buttons =
-    (text) => Array.from(document.getElementsByTagName("button")).filter((e) => e.textContent.includes(text));
+    (f) => Array.from(document.getElementsByTagName("button")).filter((e) =>
+        // HACK: "new" github UI doesn't remove the button once clicked.
+        // `.ariaDisabled` is the only way I found to check if the button was already clicked.
+        // (otherwise clicking would cause updates, which would cause clicking... -> infinite loop)
+        e.ariaDisabled !== "true"
+        && f(e.textContent)
+    );
 
 async function expandAllLoads(mutations) {
     // If a text or button node was added
@@ -11,8 +17,13 @@ async function expandAllLoads(mutations) {
         return
     }
 
-    // Click on all "Load more…" and "Load diff" buttons
-    let loads = find_buttons("Load more…").concat(find_buttons("Load diff"));
+    // Click on all the "Load more…" and its variations buttons
+    let loads = find_buttons((text) =>
+        text.includes("Load more…")
+        || text.includes("Load diff")
+        || text.includes("Load all")
+        || (text.includes("Load ") && text.includes(" more")) // "Load 150 more"
+    );
     loads.forEach((b) => b.click());
 }
 
